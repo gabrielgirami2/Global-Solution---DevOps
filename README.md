@@ -43,9 +43,9 @@ O nosso projeto tem:
 - [ ] Banco de Dados
 
 
-## 📈 Diagrama de Desenvolvimento
+## 📈 Arquitetura do projeto
 
-<p>Este é o nosso diagrama de desenvolvimento:</p>
+<p>Este é o nossa arquitetura do projeto:</p>
 
 <img src="/images/Diagrama Global Solution.drawio.png"/>
 
