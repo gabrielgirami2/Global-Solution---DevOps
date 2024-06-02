@@ -47,7 +47,7 @@ O nosso projeto tem:
 
 <p>Este é o nosso diagrama de desenvolvimento:</p>
 
-<img src="src/images/Diagrama de Desenvolvimento.png"/>
+<img src="/images/Diagrama Global Solution.drawio.png"/>
 
 
 ## ⚒️ Tecnologias
