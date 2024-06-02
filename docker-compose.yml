@@ -1,0 +1,42 @@
+version: "3"
+services:
+
+  database:
+    container_name: database
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_USER: pgr
+      MYSQL_PASSWORD: pgr2024
+      MYSQL_DATABASE: ProjetoTech
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    networks:
+      - pgr_network
+    volumes:
+      - db_data:/var/lib/mysql
+  java-api:
+    container_name: java-api
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_NAME: OceanTech
+      DB_USER: pgr
+      DB_PASSWORD: pgr2024 
+      AUTH_PLUGIN: mysql_native_password
+    depends_on:
+      - database
+    networks:
+      - pgr_network
+
+networks:
+  pgr_network:
+
+volumes:
+  db_data:
