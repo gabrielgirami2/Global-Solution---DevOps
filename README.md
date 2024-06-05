@@ -66,5 +66,5 @@ Os autores do grupo são:
 - Gabriel Girami de Souza - RM98017
 - Felipe Cardoso Torlai - RM550263
 - Felipe Santos Pinheiro - RM550244
-- Jean Carlos - RM550913
-- Gustavo Vinhola - RM550913
+- Jean Carlos - RM550430
+- Gustavo Vinhola - RM98826
