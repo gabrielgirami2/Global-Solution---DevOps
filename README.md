@@ -27,7 +27,7 @@ Além disto, é bom ter um software de testes de API (Postman, Insomnia, Yaak)
 
 ```bash
 # Clone o nosso projeto
-$ git clone [https://github.com/FelipeSPinheiro06/API--Ocean-Tech]
+$ git clone https://github.com/FelipeSPinheiro06/API--Ocean-Tech
 ```
 
 ```docker
