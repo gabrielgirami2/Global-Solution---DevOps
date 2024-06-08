@@ -1,9 +1,26 @@
-FROM eclipse-temurin:17-jdk-alpine
+# Etapa de build usando Maven
+FROM maven:3.8.4-openjdk-17 AS build
+WORKDIR /app
 
-VOLUME /tmp
+# Argumentos de build para configurar as dependências do Maven
+ARG MAVEN_CLI_OPTS="-B -DskipTests"
 
-WORKDIR /projeto
+# Copiar o arquivo de configuração do Maven e instalar as dependências
+COPY pom.xml .
+RUN mvn dependency:go-offline ${MAVEN_CLI_OPTS}
 
-COPY ftc-0.0.1-SNAPSHOT.jar app.jar
+# Copiar o código-fonte e compilar a aplicação
+COPY src ./src
+RUN mvn clean package ${MAVEN_CLI_OPTS}
 
-CMD ["java", "-jar", "app.jar"]
+# Etapa final usando uma imagem mais leve do OpenJDK
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+ENV HOST=database
+
+# Copiar o artefato da etapa de build para a imagem final
+COPY --from=build /app/target/oceantech-0.0.1-SNAPSHOT.jar ./app.jar
+
+# Comando de entrada para rodar a aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
